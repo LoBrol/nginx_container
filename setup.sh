@@ -43,3 +43,7 @@ nala install php -y
 nala install php-fpm -y
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
+
+
+# ----- DONE -----
+clear && neofetch
