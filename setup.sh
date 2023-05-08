@@ -30,4 +30,5 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 nala install nginx -y
 nala install php -y
 nala install php-fpm -y
-
+a2enmod proxy_fcgi setenvif
+a2enconf php8.1-fpm
