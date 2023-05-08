@@ -39,8 +39,8 @@ chsh -s $(which zsh)
 
 # ----- INSTALL NGINX & PHP -----
 nala install nginx -y
-nala install php -y
-nala install php-fpm -y
+nala install php8.1 -y
+nala install php8.1-fpm -y
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
 cd /etc/nginx/sites-available
