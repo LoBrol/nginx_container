@@ -15,7 +15,6 @@ dpkg-reconfigure --frontend noninteractive tzdata
 apt install nala -y
 nala upgrade -y
 nala install nano -y
-nala install wget -y
 nala install curl -y
 nala install git -y
 nala install zsh -y
