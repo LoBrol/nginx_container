@@ -30,7 +30,7 @@ wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/nanorc
 
 # ----- SETUP OH-MY-ZSH -----
 cd /root
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --batch
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 em .zshrc
 wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/.zshrc
