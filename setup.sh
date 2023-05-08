@@ -46,4 +46,4 @@ a2enconf php8.1-fpm
 
 
 # ----- DONE -----
-clear && neofetch
+history -cw && clear && neofetch
