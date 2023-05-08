@@ -5,6 +5,12 @@
 apt update
 
 
+# ----- CONFIGURE TZDATA -----
+ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
+DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+dpkg-reconfigure --frontend noninteractive tzdata
+
+
 # ----- INSTALL USEFUL TOOLS -----
 apt install nala -y
 nala upgrade -y
@@ -23,7 +29,7 @@ git clone --depth=1 https://raw.githubusercontent.com/LoBrol/nginx_container/mai
 
 # ----- SETUP OH-MY-ZSH -----
 cd /root
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -s --batch
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sh -c "$(wget -O- https://raw.githubusercontent.com/LoBrol/nginx_container/main/.zshrc)"
 chsh -s $(which zsh)
