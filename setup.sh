@@ -5,10 +5,20 @@
 apt update
 
 
+
+# ====================================================================================================================================
+
+
+
 # ----- CONFIGURE TZDATA -----
 ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
 DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 dpkg-reconfigure --frontend noninteractive tzdata
+
+
+
+# ====================================================================================================================================
+
 
 
 # ----- INSTALL USEFUL TOOLS -----
@@ -22,10 +32,20 @@ nala install zsh -y
 nala install neofetch -y
 
 
+
+# ====================================================================================================================================
+
+
+
 # ----- SETUP NANO -----
 cd /etc
 rm nanorc
 wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/file_to_be_copied/nanorc
+
+
+
+# ====================================================================================================================================
+
 
 
 # ----- SETUP OH-MY-ZSH -----
@@ -37,12 +57,29 @@ wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/file_to_be_co
 chsh -s $(which zsh)
 
 
-# ----- INSTALL NGINX & PHP -----
+
+# ====================================================================================================================================
+
+
+
+# ----- INSTALL NGINX -----
 nala install nginx -y
+
+
+# ----- INSTALL PHP8.1 + PHP8.1-FPM -----
 nala install php8.1 -y
 nala install php8.1-fpm -y
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
+
+
+# ----- INSTALL COMPOSER -----
+nala install composer
+a2enmod proxy_fcgi setenvif
+a2enconf php8.1-fpm
+
+
+# ----- INTEGRATE PHP WITH NGINX -----
 cd /etc/nginx/sites-available
 rm default
 wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/file_to_be_copied/default
@@ -54,6 +91,12 @@ service nginx restart
 # service nginx configtest 
 cd /var/www/html
 rm -rf *
+
+
+
+# ====================================================================================================================================
+
+
 
 # ----- DONE -----
 cd /
