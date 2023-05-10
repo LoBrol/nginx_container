@@ -66,17 +66,25 @@ chsh -s $(which zsh)
 nala install nginx -y
 
 
-# ----- INSTALL PHP8.1 + PHP8.1-FPM -----
+
+# ----- INSTALL PHP8.1 + PHP8.1-FPM + PHP8.1-XML -----
 nala install php8.1 -y
+
 nala install php8.1-fpm -y
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
+
+nala install php8.1-xml -y
+a2enmod proxy_fcgi setenvif
+a2enconf php8.1-fpm
+
 
 
 # ----- INSTALL COMPOSER -----
 nala install composer
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
+
 
 
 # ----- INTEGRATE PHP WITH NGINX -----
