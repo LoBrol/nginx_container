@@ -12,8 +12,7 @@ apt update
 
 # ----- CONFIGURE TZDATA -----
 ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
-#DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
-apt install -y tzdata
+DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
 dpkg-reconfigure --frontend noninteractive tzdata
 
 
@@ -28,7 +27,7 @@ nala upgrade -y
 nala install -y nano
 nala install -y curl
 nala install -y git
-nala install -y yes
+#nala install -y yes
 nala install -y zsh
 nala install -y neofetch
 
