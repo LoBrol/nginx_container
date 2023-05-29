@@ -12,7 +12,8 @@ apt update
 
 # ----- CONFIGURE TZDATA -----
 ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
-DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+#DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
+apt install -y tzdata
 dpkg-reconfigure --frontend noninteractive tzdata
 
 
