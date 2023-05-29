@@ -22,14 +22,14 @@ dpkg-reconfigure --frontend noninteractive tzdata
 
 
 # ----- INSTALL USEFUL TOOLS -----
-apt install nala -y
+apt install -y nala
 nala upgrade -y
-nala install nano -y
-# nala install wget
-nala install curl -y
-nala install git -y
-nala install zsh -y
-nala install neofetch -y
+nala install -y nano
+nala install -y curl
+nala install -y git
+nala install -y yes
+nala install -y zsh
+nala install -y neofetch
 
 
 
@@ -50,7 +50,7 @@ wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/file_to_be_co
 
 # ----- SETUP OH-MY-ZSH -----
 cd /root
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+yes n | sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 rm .zshrc
 wget https://raw.githubusercontent.com/LoBrol/nginx_container/main/file_to_be_copied/.zshrc
@@ -63,25 +63,25 @@ chsh -s $(which zsh)
 
 
 # ----- INSTALL NGINX -----
-nala install nginx -y
+nala install -y nginx
 
 
 
 # ----- INSTALL PHP8.1 + PHP8.1-FPM + PHP8.1-XML -----
-nala install php8.1 -y
+nala install -y php8.1
 
-nala install php8.1-fpm -y
+nala install -y php8.1-fpm
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
 
-nala install php8.1-xml -y
+nala install -y php8.1-xml
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
 
 
 
 # ----- INSTALL COMPOSER -----
-nala install composer
+nala install -y composer
 a2enmod proxy_fcgi setenvif
 a2enconf php8.1-fpm
 
@@ -107,5 +107,5 @@ rm -rf *
 
 
 # ----- DONE -----
-cd /
+cd
 history -cw && clear && neofetch
